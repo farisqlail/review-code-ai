@@ -114,29 +114,47 @@ function UploadPage() {
         alt="Space background"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover"
       />
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-4 py-10 md:px-6 md:py-16">
-        <div className="mb-10 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.26em] text-slate-300">
-            AI Code Review Assistant
-          </p>
-          <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-50 md:text-4xl">
-            Good evening, Developer
-          </h1>
-          <p className="mt-2 text-xl font-medium text-slate-200 md:text-2xl">
-            What code would you like me to review today?
-          </p>
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-6 md:px-6 md:py-8">
+        <div className="flex flex-1 flex-col items-center justify-center py-4 md:py-10">
+          <div className="mb-10 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-slate-300">
+              AI Code Review Assistant
+            </p>
+            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-50 md:text-4xl">
+              Good evening, Developer
+            </h1>
+            <p className="mt-2 text-xl font-medium text-slate-200 md:text-2xl">
+              What code would you like me to review today?
+            </p>
+          </div>
+
+          <main className="flex w-full max-w-3xl flex-col gap-4">
+            <section className="flex w-full flex-col gap-3">
+              <div className="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 shadow-[0_24px_80px_rgba(15,23,42,0.9)] backdrop-blur">
+                <div className="mb-4 flex flex-col gap-3">
+                  <FileUpload onLoad={handleFileLoad} isBusy={false} />
+                </div>
+                <CodeEditor
+                  code={code}
+                  onSubmit={goToReview}
+                  isLoading={false}
+                />
+              </div>
+            </section>
+          </main>
         </div>
 
-        <main className="flex w-full max-w-3xl flex-col gap-4">
-          <section className="flex w-full flex-col gap-3">
-            <div className="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-4 shadow-[0_24px_80px_rgba(15,23,42,0.9)] backdrop-blur">
-              <div className="mb-4 flex flex-col gap-3">
-                <FileUpload onLoad={handleFileLoad} isBusy={false} />
-              </div>
-              <CodeEditor code={code} onSubmit={goToReview} isLoading={false} />
-            </div>
-          </section>
-        </main>
+        <footer className="border-t border-slate-800/60 py-3 text-center text-[11px] text-slate-400">
+          made with{" "}
+          <a
+            href="https://www.instagram.com/laildev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold text-slate-200 underline-offset-2 hover:underline"
+          >
+            LailDev
+          </a>
+        </footer>
       </div>
     </div>
   );
@@ -376,6 +394,18 @@ function ReviewPage() {
             )}
           </section>
         </main>
+
+        <footer className="border-t border-slate-800/60 py-3 text-center text-[11px] text-slate-400">
+          made with{" "}
+          <a
+            href="https://www.instagram.com/laildev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold text-slate-200 underline-offset-2 hover:underline"
+          >
+            LailDev
+          </a>
+        </footer>
       </div>
     </div>
   );
